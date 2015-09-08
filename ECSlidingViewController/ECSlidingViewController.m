@@ -471,6 +471,12 @@
         containerViewFrame.size.height -= bottomLayoutGuideLength;
     }
     
+    if ((self.topViewController.edgesForExtendedLayout & UIRectEdgeAll) && [UIApplication sharedApplication].statusBarFrame.size.height > 20.f) {
+        CGFloat topLayoutGuideLength = [self.topLayoutGuide length];
+        containerViewFrame.origin.y     = topLayoutGuideLength;
+        containerViewFrame.size.height -= topLayoutGuideLength;
+    }
+    
     switch(position) {
         case ECSlidingViewControllerTopViewPositionCentered:
             return containerViewFrame;
